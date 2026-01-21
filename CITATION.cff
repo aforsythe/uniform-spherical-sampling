@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+preferred-citation:
+  type: conference-paper
+  authors:
+    - family-names: Forsythe
+      given-names: Alexander G.
+    - family-names: Funt
+      given-names: Brian
+  title: "Improving Uniformity of Vertex Distributions in Spherical Sampling of Metamer Mismatch Body Boundaries"
+  collection-title: "Proceedings of the IS&T Electronic Imaging Symposium (EI 2026)"
+  keywords:
+    - Color
+    - Metamer Mismatching
+    - Spherical Sampling
+    - Farthest Point Sampling
+  publisher: "Society for Imaging Science and Technology (IS&T)"
+  year: 2026
+  abstract: |
+    Metamer mismatch bodies (MMBs) quantify the extent of metamer mismatching for a given color stimulus with a change in color mechanism. Prior work has shown that the MMB boundary can be efficiently approximated by spherical sampling of unit directions in the 6D joint color-mechanism space. However, this often produces non-uniform vertex distributions. We explored a simple post-processing workflow that builds a larger candidate pool of vertices and then selects a fixed-size subset using a spacing-driven sampling algorithm, improving vertex uniformity as measured by a nearest-neighbor metric. This approach substantially improves vertex uniformity in sensor space, but it can discard boundary-defining extreme vertices. We therefore include an explicit mechanism for retaining boundary-critical extremes prior to applying spacing-driven selection.
