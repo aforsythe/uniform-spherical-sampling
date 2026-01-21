@@ -38,7 +38,7 @@ or
 1. Clone with submodules:
 
 ```
-git clone --recursive [https://github.com/sfu-cs-vision-lab/uniform-spherical-sampling.git](https://github.com/sfu-cs-vision-lab/uniform-spherical-sampling.git)
+git clone --recursive https://github.com/sfu-cs-vision-lab/uniform-spherical-sampling.git
 ```
 
 2. Open the project in MATLAB:
@@ -163,6 +163,6 @@ This algorithm makes use of the algorithm described in
 
 ## License
 
-This code is provided under the AGPL v3 License terms specified in the [LICENSE](LICENSE.md) file
+This code is provided under the AGPL v3 License terms specified in the [LICENSE](LICENSE) file
 
 Copyright 2026 Alexander Forsythe and Brian Funt, Simon Fraser University.
