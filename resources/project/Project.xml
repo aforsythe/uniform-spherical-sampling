@@ -66,6 +66,13 @@
                     </Category>
                 </Info>
             </File>
+            <File Location="loadMMBTestData.m">
+                <Info>
+                    <Category UUID="FileClassCategory">
+                        <Label UUID="design"/>
+                    </Category>
+                </Info>
+            </File>
         </File>
         <File Location="tests">
             <Info/>
@@ -108,6 +115,13 @@
                 </Info>
             </File>
             <File Location="sobolSphereDirectionsTest.m">
+                <Info>
+                    <Category UUID="FileClassCategory">
+                        <Label UUID="test"/>
+                    </Category>
+                </Info>
+            </File>
+            <File Location="loadMMBTestDataTest.m">
                 <Info>
                     <Category UUID="FileClassCategory">
                         <Label UUID="test"/>
@@ -370,6 +384,19 @@
         <File Location="LICENSE">
             <Info/>
         </File>
+        <File Location="examples">
+            <Info/>
+            <DIR_SIGNIFIER Location="1">
+                <Info/>
+            </DIR_SIGNIFIER>
+            <File Location="GettingStarted.m">
+                <Info>
+                    <Category UUID="FileClassCategory">
+                        <Label UUID="design"/>
+                    </Category>
+                </Info>
+            </File>
+        </File>
     </Files>
     <Categories Location="Root">
         <Category Location="FileClassCategory">
@@ -406,6 +433,12 @@
         </Reference>
         <Reference Location="5a1d887e-6cc6-476c-9502-1a248b93793c">
             <Info Ref="lib/src" Type="Relative"/>
+        </Reference>
+        <Reference Location="7056d726-b3aa-4d1c-8573-4d295a15c213">
+            <Info Ref="buildUtilities" Type="Relative"/>
+        </Reference>
+        <Reference Location="9a395b8c-d91a-4f98-b411-0720abfd0c6c">
+            <Info Ref="paperFigures/utils" Type="Relative"/>
         </Reference>
         <Reference Location="b0e58b00-76c3-49b8-9032-0f41fa40cc44">
             <Info Ref="src" Type="Relative"/>
