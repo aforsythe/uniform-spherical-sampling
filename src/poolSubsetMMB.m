@@ -170,9 +170,7 @@ end
             end
             
             for r = 1:options.FPSRestarts
-                seed_r = options.BaseSeed + 10000 + r;
-                
-                fillIdx = farthestPointSamplingSeeded(V_rem, nFill, V_ext, RndSeed=seed_r);
+                fillIdx = farthestPointSamplingSeeded(V_rem, nFill, V_ext);
                 V_cand = [V_ext; V_rem(fillIdx, :)];
                 
                 [~, ~, cvCand] = computeNNStats(V_cand);

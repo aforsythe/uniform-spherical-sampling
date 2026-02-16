@@ -156,13 +156,6 @@
             <DIR_SIGNIFIER Location="1">
                 <Info/>
             </DIR_SIGNIFIER>
-            <File Location="generateBadge.m">
-                <Info>
-                    <Category UUID="FileClassCategory">
-                        <Label UUID="design"/>
-                    </Category>
-                </Info>
-            </File>
             <File Location="generateCodeIssuesBadge.m">
                 <Info>
                     <Category UUID="FileClassCategory">

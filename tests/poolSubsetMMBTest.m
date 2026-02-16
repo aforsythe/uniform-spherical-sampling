@@ -15,7 +15,6 @@ classdef poolSubsetMMBTest < matlab.unittest.TestCase
     %   Copyright 2026 Alexander Forsythe and Brian Funt. Simon Fraser University.
 
     properties
-        SampleSensors
         SampleMech1
         SampleMech2
         SampleZ0
@@ -39,7 +38,6 @@ classdef poolSubsetMMBTest < matlab.unittest.TestCase
                 s2 = abs(rand(nw, 3)) + 0.1;
                 testCase.SampleMech1 = s1;
                 testCase.SampleMech2 = s2;
-                testCase.SampleSensors = [s1, s2];
                 testCase.SampleZ0 = [0.3, 0.3, 0.3];
                 return;
             end
@@ -65,7 +63,6 @@ classdef poolSubsetMMBTest < matlab.unittest.TestCase
 
             testCase.SampleMech1 = s1;
             testCase.SampleMech2 = s2;
-            testCase.SampleSensors = [s1, s2];
 
             % 50% gray constraint slice
             refl_gray = 0.5 * ones(1, nw);

@@ -32,7 +32,6 @@ function cleanTask(~)
 % Delete reports and badges
     if exist("reports/badge", "dir")
         delete("reports/badge/*.json");
-        delete("reports/badge/*.svg");
     end
     if exist("reports", "dir")
         delete("reports/*.xml");
@@ -56,7 +55,6 @@ end
 function testTask(~)
 % Run unit tests with coverage
     import matlab.unittest.TestRunner
-    import matlab.unittest.TestSuite
     import matlab.unittest.plugins.CodeCoveragePlugin
     import matlab.unittest.plugins.XMLPlugin
     import matlab.unittest.plugins.codecoverage.CoberturaFormat

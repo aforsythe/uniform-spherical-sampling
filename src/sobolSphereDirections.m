@@ -8,7 +8,7 @@ function U = sobolSphereDirections(n, options)
 %       n - Number of directions (scalar)
 %
 %   OPTIONAL INPUTS (Name-Value arguments):
-%       Seed - Random seed (scalar) Default: 42
+%       RndSeed - Random seed (scalar) Default: 42
 %       Skip - Initial points to skip (scalar) Default: 1024
 %       Leap - Leap factor (scalar) Default: 64
 %

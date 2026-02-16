@@ -22,7 +22,7 @@ function V = generateMMBVertices(sensors, nullEqCon, x0, intPoint, options)
 %   EXAMPLE:
 %       data = loadMMBTestData();
 %       V = generateMMBVertices(data.sensors, data.nullEqCon, data.x0, ...
-%           data.ros2, NumNormals=5000, Scale=data.yNormScale);
+%           data.intPoint, NumNormals=5000, Scale=data.yNormScale);
 %
 %   Copyright 2026 Alexander Forsythe and Brian Funt. Simon Fraser University.
 

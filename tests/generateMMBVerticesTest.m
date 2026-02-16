@@ -91,29 +91,6 @@ classdef generateMMBVerticesTest < matlab.unittest.TestCase
             testCase.verifyTrue(exist('generateMMBVertices', 'file') == 2);
         end
 
-        function testNumNormalsArgument(testCase)
-            % Verify NumNormals parameter is accepted
-            testCase.assumeTrue(testCase.dependenciesAvailable(), ...
-                'External dependencies not available');
-
-            % call the function with custom NumNormals
-            % V = generateMMBVertices(testCase.SampleSensors, ...
-            %     testCase.SampleNullEqCon, testCase.SampleX0, ...
-            %     testCase.SampleIntPoint, NumNormals=1000);
-        end
-
-        function testRndSeedArgument(testCase)
-            % Verify RndSeed parameter is accepted
-            testCase.assumeTrue(testCase.dependenciesAvailable(), ...
-                'External dependencies not available');
-        end
-
-        function testUseOrthonormalArgument(testCase)
-            % Verify UseOrthonormal parameter is accepted
-            testCase.assumeTrue(testCase.dependenciesAvailable(), ...
-                'External dependencies not available');
-        end
-
         % Output Format Tests (when dependencies available)
 
         function testOutputIs3Column(testCase)

@@ -9,14 +9,6 @@ classdef computeNNStatsTest < matlab.unittest.TestCase
     %
     %   Copyright 2026 Alexander Forsythe and Brian Funt. Simon Fraser University.
     
-    properties (TestParameter)
-        % Parameterized test configurations
-        regularConfigs = struct(...
-            'cube', struct('V', [0 0 0; 1 0 0; 0 1 0; 0 0 1; 1 1 0; 1 0 1; 0 1 1; 1 1 1]), ...
-            'line', struct('V', [0 0 0; 1 0 0; 2 0 0; 3 0 0]), ...
-            'plane', struct('V', [0 0 0; 1 0 0; 0 1 0; 1 1 0]));
-    end
-    
     methods (Test)
         % Basic Functionality Tests
         
@@ -244,7 +236,6 @@ classdef computeNNStatsTest < matlab.unittest.TestCase
             
             % These values were computed with verified-correct implementation
             % Update if algorithm intentionally changes
-            testCase.verifyEqual(meanNN, meanNN, 'AbsTol', 1e-10);
             testCase.verifyTrue(isfinite(meanNN));
             testCase.verifyTrue(isfinite(stdNN));
             testCase.verifyTrue(isfinite(CV));
