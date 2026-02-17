@@ -121,18 +121,23 @@ end
     U = [U; eye(3); -eye(3)];
     
     [extremeIdx, counts] = identifyExtremeVertices(V_pool, U);
-    
+
+    % Sort by descending support count (Algorithm 1, line 15)
+    [counts, sortOrder] = sort(counts, 'descend');
+    extremeIdx = extremeIdx(sortOrder);
+
     % Cap extremes
+    nExtremeTotal = numel(extremeIdx);
     maxExtremes = max(1, floor(options.ExtremeFraction * targetN));
     capped = false;
-    
-    if numel(extremeIdx) > maxExtremes
-        [~, sortOrder] = sort(counts, 'descend');
-        extremeIdx = extremeIdx(sortOrder(1:maxExtremes));
+
+    if nExtremeTotal > maxExtremes
+        extremeIdx = extremeIdx(1:maxExtremes);
+        counts = counts(1:maxExtremes); %#ok<NASGU>
         capped = true;
-        
+
         if options.Verbose
-            fprintf('  Extremes capped: %d -> %d\n', numel(sortOrder), maxExtremes);
+            fprintf('  Extremes capped: %d -> %d\n', nExtremeTotal, maxExtremes);
         end
     end
     
@@ -170,7 +175,9 @@ end
             end
             
             for r = 1:options.FPSRestarts
-                fillIdx = farthestPointSamplingSeeded(V_rem, nFill, V_ext);
+                rng(options.BaseSeed + 10000 + r);
+                initIdx = randi(size(V_rem, 1));
+                fillIdx = farthestPointSamplingSeeded(V_rem, nFill, V_ext, InitIdx=initIdx);
                 V_cand = [V_ext; V_rem(fillIdx, :)];
                 
                 [~, ~, cvCand] = computeNNStats(V_cand);
@@ -197,5 +204,5 @@ end
     % Diagnostic info
     info = struct('poolSize', poolSize, 'extremeCount', nExt, ...
                   'fillCount', fillCount, 'CV', bestCV, ...
-                  'meanNN', meanNN, 'capped', capped);
+                  'meanNN', meanNN * options.Scale, 'capped', capped);
 end

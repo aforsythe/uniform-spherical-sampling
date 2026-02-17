@@ -97,6 +97,25 @@ classdef farthestPointSamplingSeededTest < matlab.unittest.TestCase
             testCase.verifyEqual(idx, 3);
         end
 
+        function testInitIdxForcesFirstPick(testCase)
+            % InitIdx should force the first selected point
+            V = [0 0 0; 1 0 0; 2 0 0; 10 0 0];
+            seeds = [0 0 0];  % Seed at origin
+            k = 2;
+
+            % Without InitIdx, first pick is farthest from seed = index 4
+            idx_auto = farthestPointSamplingSeeded(V, k, seeds);
+            testCase.verifyEqual(idx_auto(1), 4);
+
+            % With InitIdx=2, first pick is forced to index 2
+            idx_forced = farthestPointSamplingSeeded(V, k, seeds, InitIdx=2);
+            testCase.verifyEqual(idx_forced(1), 2);
+
+            % Second pick should still be farthest from {seed, forced point}
+            % i.e. farthest from {(0,0,0), (1,0,0)} = index 4 at (10,0,0)
+            testCase.verifyEqual(idx_forced(2), 4);
+        end
+
         % Edge Case Tests
 
         function testKEqualsN(testCase)

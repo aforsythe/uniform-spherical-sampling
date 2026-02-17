@@ -71,7 +71,9 @@ function testCase = loadMMBTestData()
 
     % Reference point for mech2
     testCase.intPoint = refl_gray * s2;
+    testCase.ros2 = testCase.intPoint;
 
     % Y-normalized scaling factor
-    testCase.yNormScale = 1.0 / testCase.z0(2);
+    whiteXYZ2 = ones(1, nw) * s2;
+    testCase.yNormScale = 100 / whiteXYZ2(2);
 end

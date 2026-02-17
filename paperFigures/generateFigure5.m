@@ -82,7 +82,7 @@ config.subsetCV = cvSub;
 
 %% Create figure
 fprintf("Rendering figure...\n");
-fig = figure("Color", "w", "Position", [100, 100, 1400, 650]);
+fig = figure("Color", "w", "Position", [100, 100, 1600, 650]);
 
 % Main title
 annotation(fig, "textbox", [0, 0.92, 1, 0.08], ...
@@ -102,9 +102,10 @@ pad = 0.02 * (max(allV) - min(allV));
 lims = [min(allV) - pad; max(allV) + pad];
 
 %% Subplot 1: Baseline
-ax1 = axes(fig, "Position", [0.05, 0.12, 0.42, 0.75]);
+ax1 = axes(fig, "Position", [0.04, 0.12, 0.40, 0.75]);
 scatter3(ax1, V_base(:,1), V_base(:,2), V_base(:,3), markerSize, ptColor, ...
-    "MarkerFaceColor", ptColor, "MarkerFaceAlpha", alphaVal, "MarkerEdgeColor", "none");
+    "MarkerFaceColor", ptColor, "MarkerFaceAlpha", alphaVal, ...
+    "MarkerEdgeColor", ptColor, "MarkerEdgeAlpha", alphaVal * 0.6);
 
 grid(ax1, "on");
 axis(ax1, "equal");
@@ -113,18 +114,21 @@ xlim(ax1, [lims(1,1), lims(2,1)]);
 ylim(ax1, [lims(1,2), lims(2,2)]);
 zlim(ax1, [lims(1,3), lims(2,3)]);
 
-set(ax1, "FontSize", 12, "LineWidth", 1.1, "Box", "on", "FontName", "Helvetica");
-xlabel(ax1, "X", "FontWeight", "bold");
-ylabel(ax1, "Y", "FontWeight", "bold");
-zlabel(ax1, "Z", "FontWeight", "bold");
+set(ax1, "FontSize", 12, "LineWidth", 1.1, "Box", "on", "FontName", "Helvetica", ...
+    "Color", "w", "GridColor", "k", ...
+    "XColor", "k", "YColor", "k", "ZColor", "k");
+xlabel(ax1, "X", "FontWeight", "bold", "Color", "k");
+ylabel(ax1, "Y", "FontWeight", "bold", "Color", "k");
+zlabel(ax1, "Z", "FontWeight", "bold", "Color", "k");
 
 titleStr1 = sprintf("Baseline ($N_{\\mathrm{vertices}}$=%d), CV=%.2f", statsBase.n, statsBase.CV);
-title(ax1, titleStr1, "Interpreter", "latex", "FontSize", 14);
+title(ax1, titleStr1, "Interpreter", "latex", "FontSize", 14, "Color", "k");
 
 %% Subplot 2: Pool + Subset
-ax2 = axes(fig, "Position", [0.53, 0.12, 0.42, 0.75]);
+ax2 = axes(fig, "Position", [0.56, 0.12, 0.40, 0.75]);
 scatter3(ax2, V_sub(:,1), V_sub(:,2), V_sub(:,3), markerSize, ptColor, ...
-    "MarkerFaceColor", ptColor, "MarkerFaceAlpha", alphaVal, "MarkerEdgeColor", "none");
+    "MarkerFaceColor", ptColor, "MarkerFaceAlpha", alphaVal, ...
+    "MarkerEdgeColor", ptColor, "MarkerEdgeAlpha", alphaVal * 0.6);
 
 grid(ax2, "on");
 axis(ax2, "equal");
@@ -133,13 +137,15 @@ xlim(ax2, [lims(1,1), lims(2,1)]);
 ylim(ax2, [lims(1,2), lims(2,2)]);
 zlim(ax2, [lims(1,3), lims(2,3)]);
 
-set(ax2, "FontSize", 12, "LineWidth", 1.1, "Box", "on", "FontName", "Helvetica");
-xlabel(ax2, "X", "FontWeight", "bold");
-ylabel(ax2, "Y", "FontWeight", "bold");
-zlabel(ax2, "Z", "FontWeight", "bold");
+set(ax2, "FontSize", 12, "LineWidth", 1.1, "Box", "on", "FontName", "Helvetica", ...
+    "Color", "w", "GridColor", "k", ...
+    "XColor", "k", "YColor", "k", "ZColor", "k");
+xlabel(ax2, "X", "FontWeight", "bold", "Color", "k");
+ylabel(ax2, "Y", "FontWeight", "bold", "Color", "k");
+zlabel(ax2, "Z", "FontWeight", "bold", "Color", "k");
 
 titleStr2 = sprintf("Pool + Subset ($N_{\\mathrm{vertices}}$=%d), CV=%.2f", size(V_sub, 1), cvSub);
-title(ax2, titleStr2, "Interpreter", "latex", "FontSize", 14);
+title(ax2, titleStr2, "Interpreter", "latex", "FontSize", 14, "Color", "k");
 
 %% Export
 fprintf("Exporting...\n");

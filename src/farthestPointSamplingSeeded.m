@@ -1,4 +1,4 @@
-function idx = farthestPointSamplingSeeded(V, k, seeds)
+function idx = farthestPointSamplingSeeded(V, k, seeds, options)
 % FARTHESTPOINTSAMPLINGSEEDED Seeded Farthest Point Sampling (FPS)
 %
 %   idx = farthestPointSamplingSeeded(V, k, seeds) selects k
@@ -10,6 +10,9 @@ function idx = farthestPointSamplingSeeded(V, k, seeds)
 %       k       - Number of points to select (scalar)
 %       seeds   - Existing points to initialize distances (mxn array)
 %
+%   OPTIONAL INPUTS (Name-Value arguments):
+%       InitIdx - Index of first point to select (scalar) Default: 0 (auto)
+%
 %   OUTPUT:
 %       idx     - Indices of the selected points in V (mx1 vector)
 %
@@ -19,6 +22,7 @@ arguments
     V double
     k (1,1) double
     seeds double
+    options.InitIdx (1,1) double = 0
 end
 
     n = size(V, 1);
@@ -42,7 +46,11 @@ end
     
     for i = 1:k
         % pick the point furthest from everything selected so far
-        [~, bestIdx] = max(minDistSq);
+        if i == 1 && options.InitIdx > 0
+            bestIdx = options.InitIdx;
+        else
+            [~, bestIdx] = max(minDistSq);
+        end
         idx(i) = bestIdx;
         
         % Update min distances. Only care if the new point is closer
